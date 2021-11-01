@@ -131,6 +131,29 @@ a:hover {
     border-top: 0px;
 }
 
+.card .card-header-expand {
+    background-color: #00000025;
+    border-bottom: 1px solid var(--accent_color);
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient( 90deg, rgba(231, 105, 105, 1) 0%, rgba(31, 33, 35, 1) 31%, rgba(31, 33, 35, 1) 66%, rgba(231, 105, 105, 1) 100%);
+    border-image-slice: 1;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+}
+
+.card .card-header-expand:hover {
+    background-color: #66666625;
+    border-bottom: 1px solid var(--accent_color);
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient( 90deg, rgba(231, 105, 105, 1) 0%, rgba(31, 33, 35, 1) 31%, rgba(31, 33, 35, 1) 66%, rgba(231, 105, 105, 1) 100%);
+    border-image-slice: 1;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+	transition: opacity 0.5s ease !important;
+}
+
 .card .card-footer {
     border-top: 1px solid rgb(56, 56, 56);
 }
@@ -194,7 +217,19 @@ a:hover {
     transition: opacity 0.5s ease !important;
 }
 
+.btn-ppl {
+    width: 10%;
+    background-color: var(--accent_color) !important;
+    color: white !important;
+    border: none !important;
+    transition: opacity 0.5s ease !important;
+}
+
 .btn:hover {
+    opacity: 70%;
+}
+
+.btn-ppl:hover {
     opacity: 70%;
 }
 
