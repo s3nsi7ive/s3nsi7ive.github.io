@@ -206,6 +206,12 @@ a:hover {
     height: 30px;
 }
 
+.img {
+	object-fit: cover;
+	width:230px;
+	height:230px;
+}
+
 
 /* Buttons */
 
