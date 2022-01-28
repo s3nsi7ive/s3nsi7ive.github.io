@@ -1,0 +1,115 @@
+
+<head>
+    <title>panel - gxth</title>
+    <link rel="stylesheet" href="static/app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	
+	<script>
+        function generate_invite() {
+            $.get("/api/generate_invite", (res) => {
+                var left = parseInt(res);
+                if (isNaN(left))
+                    return toastr.error(res);
+
+                toastr.success("invite generated!");
+                geninv.childNodes[0].innerText = `generate invite (${left} left)`;
+
+                if (left <= 0)
+                    geninv.style.display = "none";
+            });
+        }
+
+        function show_invites() {
+            $.get("/api/invite_codes", (res) => {
+                $("table").html(`
+                <tr>
+                    <th style="position: relative; left: 10px;">code</th>
+                    <th>user</th>
+                </tr>
+                `);
+                res.forEach(add_code);
+                $(".invites").addClass("shown");
+                $(".modal-overlay").addClass("shown");
+            });
+        }
+
+        function add_code(code) {
+            var elem = $(`
+                <tr>
+                    <td>${code.code}</td>
+                    <td>${code.name}</td>
+                </tr>
+            `);
+            $("table").append(elem);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="modal-overlay">
+
+    </div>
+    <div class="invites modal" style="max-height: 350px; overflow-y:scroll;">
+        <table style="width:100%; text-align: left;">
+
+        </table>
+    </div>
+    <div class="main">
+        <div class="panel-card">
+            <div class="header">
+                <span>welcome</span>
+            </div>
+            gxth
+
+            <div class="inner">
+                <div class="separator">
+                    <br>
+                    <span>sub</span><br>
+                    <span style="color: red;">expired</span><br>
+                    <a href="/purchase">buy</a><br>
+                    <br>
+                    <span>client</span><br>
+					<a href="/loader.exe">download loader</a><br>
+
+                </div>
+
+                <div class="separator">
+                    <br>
+                    <span>discord</span><br>
+                    <a href="https://millionware.vip/account/connected-accounts/">link account</a><br>
+                    <br>
+
+                    <span>information</span><br>
+                    <a href="/faq">frequently asked questions</a><br>
+                    <a href="/static/tos.txt">terms of service</a><br>
+                    <br>
+                </div>
+            </div>
+            <span>management</span><br>
+            
+            <a href="#" onclick="show_invites()">show my invites</a>
+        </div>
+    </div>
+    <div class="panel-card stats" style="width: 300px">
+        <div class="header"><span>stats</span></div>
+        <span>registered users: 3192</span><br>
+        <span>newest user: <a href="/profile?id=3191" style="color: rgb(255, 213, 5);">minoas</a></span><br>
+        <span><span>
+    </div>
+    <div class="controls">
+        <a href="/logout">log out</a>
+    </div>
+    <div class="user-controls">
+        <a href="/panel">panel</a>
+    </div>
+
+    <script>
+        $(".modal-overlay").click(() => {
+            $(".invites").removeClass("shown");
+            $(".modal-overlay").removeClass("shown");
+        });
+    </script>
+</body>

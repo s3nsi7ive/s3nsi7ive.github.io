@@ -4,112 +4,121 @@
 
 <!-- Mirrored from moneybot.cash/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Oct 2021 20:08:33 GMT -->
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="includes/css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="includes/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="includes/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="includes/favicon/favicon-16x16.png">
-    <link rel="manifest" href="includes/favicon/site.html">
-    <link rel="mask-icon" href="includes/favicon/safari-pinned-tab.svg" color="#e16666">
-    <meta name="msapplication-TileColor" content="#313131">
-    <meta name="theme-color" content="#e16666">
-    <title>Messy Besties</title>
+    <title>panel - gxth</title>
+    <link rel="stylesheet" href="static/app.css">
+    <link rel="stylesheet" href="static/toastr.min.css">
+    <script src="static/toastr.min.js"></script>
+	
+	<script>
+	
+	function myFunction() {
+		var x = document.getElementById("myDIV");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		}
+		else {
+			x.style.display = "none";
+		}
+	}
+	</script>
+	<script>
+	
+	google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawAxisTickColors);
+
+function drawAxisTickColors() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Dogs');
+      data.addColumn('number', 'Cats');
+
+      data.addRows([
+        [0, 0, 0],    [1, 10, 5],   [2, 23, 15],  [3, 17, 9],   [4, 18, 10],  [5, 9, 5],
+        [6, 11, 3],   [7, 27, 19],  [8, 33, 25],  [9, 40, 32],  [10, 32, 24], [11, 35, 27],
+        [12, 30, 22], [13, 40, 32], [14, 42, 34], [15, 47, 39], [16, 44, 36], [17, 48, 40],
+        [18, 52, 44], [19, 54, 46], [20, 42, 34], [21, 55, 47], [22, 56, 48], [23, 57, 49],
+        [24, 60, 52], [25, 50, 42], [26, 52, 44], [27, 51, 43], [28, 49, 41], [29, 53, 45],
+        [30, 55, 47], [31, 60, 52], [32, 61, 53], [33, 59, 51], [34, 62, 54], [35, 65, 57],
+        [36, 62, 54], [37, 58, 50], [38, 55, 47], [39, 61, 53], [40, 64, 56], [41, 65, 57],
+        [42, 63, 55], [43, 66, 58], [44, 67, 59], [45, 69, 61], [46, 69, 61], [47, 70, 62],
+        [48, 72, 64], [49, 68, 60], [50, 66, 58], [51, 65, 57], [52, 67, 59], [53, 70, 62],
+        [54, 71, 63], [55, 72, 64], [56, 73, 65], [57, 75, 67], [58, 70, 62], [59, 68, 60],
+        [60, 64, 56], [61, 60, 52], [62, 65, 57], [63, 67, 59], [64, 68, 60], [65, 69, 61],
+        [66, 70, 62], [67, 72, 64], [68, 75, 67], [69, 80, 72]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'time',
+          textStyle: {
+            color: '#01579b'
+          },
+          titleTextStyle: {
+            color: '#01579b'
+          }
+        },
+        vAxis: {
+          title: 'bans',
+          textStyle: {
+            color: '#1a237e'
+          },
+          titleTextStyle: {
+            color: '#1a237e'
+          }
+        },
+        colors: ['#a52714', '#097138']
+      };
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+	
+	</script>
 </head>
 
-<body oncontextmenu="return false">
-    <div class="wave">
-        <svg data-name="Layer 1" xmlns="" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-        </svg>
-    </div>
+<body>
+    
     <!-- Navbar -->
-    <nav class="navbar navbar-expand navbar-dark">
-        <div class="container">
-            <!-- Navbar Search-->
-            <!-- Navbar -->
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <!-- <a href="forums/index.html" class="nav-link">About Me</a> -->
-                </li>
-            </ul>
-        </div>
-    </nav>
+   
 
 
 
     <!-- Main Content -->
-    <main class="d-flex mt-5" id="hide-this">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 mb-5">
-                    <div class="card">
-                        <div class="card-header">
-							<p class="card-title"><span style="color: var(--accent_color)">The Gang</span></p>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                You guys will always be with me, I'm so glad I knew you.
-                            </p>
-							<button class="btn" onclick="location.href='forums/gang.html'">Members</button>
-                        </div>
-                    </div>
+    <div class="main">
+        <div class="panel-card">
+            panel - gxth
 
-                </div>
-
+            <div class="inner">
+				<div class="separator">
+                    <br>
+                    <span>server</span><br>
+                    <span style="color: green;">online</span><br>
+                    <!--<a href="/purchase">buy</a><br>-->
+                    <br>
+                    <span>client</span><br>
+					<span style="color: green;">online</span><br>
+				</div>
+				<div class="separator">
+					<br>
+					<span>loader</span><br>
+					<a href="">download</a><br>
+					<br>
+					<!--<span>safety</span><br>-->
+					<!--<button onclick="myFunction()">view detection graph</button><br>-->
+				</div>
             </div>
+            <span>management</span><br>
+            
+            gxth | trace | worry
         </div>
-		<!-- spacer -->
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-14 mb-5">
-                    <div class="card">
-						<div class="card-header">
-							<p class="card-title">People of WA</p>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                Dedicated to the people I call my friends.
-                            </p>
-							
-                        </div>
-                    </div>
-                </div>
-			</div>
-		</div>
-		<!-- spacer -->
-		<div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 mb-5">
-                    <div class="card">
-                        <div class="card-header">
-							<p class="card-title"><span style="color: var(--accent_color)">Memories</span></p>
-                        </div>
-                        <div class="card-body">
-                            <!-- <p class="card-title">Warning <span style="color: var(--accent_color)">:</span> Hill</p> -->
-                            <p>
-                                A collection of the photos and videos I've collected with you guys. (link broken , need to upload pics and shit)
-                            </p>
-							<button class="btn" onclick="location.href=''">Album</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-	
-    <script src="includes/js/detection.html"></script>
-    <script src="includes/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    </div>
+	<div id="myDIV" style="width: 900px; height: 500px"></div><br>
+    <div class="panel-card stats" style="width: 300px">
+        <div class="header"><span>stats</span></div>
+        <span>updated : january 27 2022</span><br>
+        status : <span style="color: green;">undetected</span><br>
+        <span><span>
+    </div>
+		<!-- "color: rgb(255, 213, 5);" yellow -->
 </body>
 
 
