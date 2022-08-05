@@ -3,48 +3,114 @@
 
 <head>
     <title>gxth</title>
-    <link rel="stylesheet" href="static/app.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/app.css" media="screen">
     <link rel="stylesheet" href="static/toastr.min.css">
     <script src="static/toastr.min.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Aug 18, 2022 00:00:00").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+        
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+        
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          // Display the result in the element with id="demo"
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+        
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "together at last <3";
+          }
+        }, 1000);
+    </script>
+
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+     
+    <script>
+     
+    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
+    </script>
+
+    <script>
+        window.onload = function() {
+            if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else {
+            document.getElementById("latitude").innerHTML = "Geolocation is not supported by this browser.";
+            document.getElementById("longitude").innerHTML = "";
+        }
+        };
+    function showPosition(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        document.getElementById("latitude").innerHTML = Math.round(lat);
+        document.getElementById("longitude").innerHTML = Math.round(lon);
+    }
+    </script>
+    
 </head>
 
 <body>
     <!-- Main Content -->
     <div class="main">
-      <span style="font-size: 40px;">panel - gxth</span>
+      <span style="font-size: 40px;">wonderland</span>
       <br>
       <br>
         <div class="panel-card">
-            booter | selfbot
-
+            <i>welcome to wonderland</i><br>
+            <span style="color: green;" id="countdown">loading time ..</span><br>
             <div class="inner">
 				<div class="separator">
                     <br>
-                    <span>server</span><br>
-                    <span style="color: green;">online</span><br>
+                    <span>rabbits home</span><br>
+                    <span>queens castle</span><br>
                     <br>
-                    <span>client</span><br>
-					<span style="color: green;">online</span><br>
 				</div>
-				<div class="separator">
-					<br>
-					<span>desktop client</span><br>
-					<a href="">download</a><br>
-          <br>
-          <span>web client</span><br>
-          <a href="">launch</a><br>
-					<br>
+                <div class="separator">
+                    <br>
+                    <span>tea party</span><br>
+                    <span>forest</span><br>
+                    <br>
 				</div>
             </div>
             <span>support</span><br><br>
-            gxth#0001 | discord.gg/alr
+            <i>try the bottle</i>
         </div>
     </div>
     <div class="panel-card stats" style="width: 300px">
-        <div class="header"><span>stats</span></div>
-        <span>updated : january 27 2022</span><br>
-        status : <span style="color: green;">undetected</span><br>
+        <div class="header"><span>who am i ?</span></div>
+        <span id="gfg"></span><br>
+        <div>latitude : <span id="latitude" style="color: green;"></span></div>
+        <div>longitude : <span id="longitude" style="color: green;"></span></div>
         <span></span>
     </div>
 </body>
