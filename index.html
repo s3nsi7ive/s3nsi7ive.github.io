@@ -43,21 +43,15 @@
     <script src=
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
-     
-    <script>
-     
-    /* Add "https://api.ipify.org?format=json" statement
-               this will communicate with the ipify servers in
-               order to retrieve the IP address $.getJSON will
-               load JSON-encoded data from the server using a
-               GET HTTP request */
-                
-    $.getJSON("https://api.ipify.org?format=json", function(data) {
-         
-        // Setting text of element P with id gfg
-        $("#gfg").html(data.ip);
-    })
+
+    <script type="application/javascript">
+        function getIP(json) {
+            var e = document.getElementById("ip");
+            e = json.ip;
+        }
     </script>
+
+    <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
 
     <script>
         window.onload = function() {
@@ -108,7 +102,7 @@
     </div>
     <div class="panel-card stats" style="width: 300px">
         <div class="header"><span>who am i ?</span></div>
-        <span id="gfg"></span><br>
+        <div>ip : <span id="ip" style="color: green;"></span></div>
         <div>latitude : <span id="latitude" style="color: green;"></span></div>
         <div>longitude : <span id="longitude" style="color: green;"></span></div>
         <span></span>
