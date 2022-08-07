@@ -6,6 +6,7 @@ function add_to_discord_modal() {
     };
     fetch('https://discord.com/api/guilds/762879404795363359/widget.json', init).then(function(response) {
         if (response.status != 200) {
+            document.getElementById('online-users').innerText = 'ERR';
             return;
         }
         response.json().then(function(data) {

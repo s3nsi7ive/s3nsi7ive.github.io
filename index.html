@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="static/toastr.min.css">
     <script src="static/toastr.min.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
-
+    <script src="includes/js/main.js"></script>
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date("Aug 18, 2022 00:00:00").getTime();
-        
         // Update the count down every 1 second
         var x = setInterval(function() {
-        
+            
+            document.getElementById('users').innerText = 'ERR';
+
+
+
           // Get today's date and time
           var now = new Date().getTime();
         
@@ -27,11 +30,23 @@
           var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
           var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          var curHour = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var curMinutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
+          var curSeconds = Math.floor((now % (1000 * 60)) / 1000);
+          var dynamicSeconds = curSeconds;
+          var dynamicMinutes = curMinutes;
+          if (curSeconds < 10) {
+            dynamicSeconds = "0" + curSeconds;
+          }
+          if (curMinutes < 10) {
+            dynamicMinutes = "0" + curMinutes;
+          }
         
           // Display the result in the element with id="demo"
           document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ";
-        
+          document.getElementById("currentTime").innerHTML = curHour + " : " + dynamicMinutes + " : " + dynamicSeconds;
           // If the count down is finished, write some text
           if (distance < 0) {
             clearInterval(x);
@@ -52,7 +67,6 @@
     </script>
 
     <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
-
     <script>
         window.onload = function() {
             if (navigator.geolocation) {
@@ -81,7 +95,7 @@
       <br>
         <div class="panel-card">
             <i>welcome to wonderland</i><br>
-            <span style="color: green;" id="countdown">loading time ..</span><br>
+            <span style="color: green;" id="countdown">loading ..</span><br>
             <div class="inner">
 				<div class="separator">
                     <br>
@@ -103,6 +117,8 @@
     <div class="panel-card stats" style="width: 300px">
         <div class="header"><span>who am i ?</span></div>
         <div>ip : <span id="ip" style="color: green;"></span></div>
+        <div>users online : <span id="users" style="color: green;"></span></div>
+        <div>current time : <span id="currentTime" style="color: green;">loading ..</span> </div>
         <div>latitude : <span id="latitude" style="color: green;"></span></div>
         <div>longitude : <span id="longitude" style="color: green;"></span></div>
         <span></span>
