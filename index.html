@@ -15,7 +15,7 @@
         // Update the count down every 1 second
         var x = setInterval(function() {
             
-            document.getElementById('users').innerText = 'ERR';
+            // document.getElementById('users').innerText = 'ERR';
 
 
 
@@ -80,8 +80,8 @@
     function showPosition(position) {
         var lat = position.coords.latitude;
         var lon = position.coords.longitude;
-        document.getElementById("latitude").innerHTML = Math.round(lat);
-        document.getElementById("longitude").innerHTML = Math.round(lon);
+        document.getElementById("latitude").innerHTML = lat.toFixed(5);
+        document.getElementById("longitude").innerHTML = lon.toFixed(5);
     }
     </script>
     
@@ -116,8 +116,7 @@
     </div>
     <div class="panel-card stats" style="width: 300px">
         <div class="header"><span>who am i ?</span></div>
-        <div>ip : <span id="ip" style="color: green;"></span></div>
-        <div>users online : <span id="users" style="color: green;"></span></div>
+        <!--<div>users online : <span id="users" style="color: green;"></span></div>-->
         <div>current time : <span id="currentTime" style="color: green;">loading ..</span> </div>
         <div>latitude : <span id="latitude" style="color: green;"></span></div>
         <div>longitude : <span id="longitude" style="color: green;"></span></div>
