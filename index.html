@@ -9,82 +9,7 @@
     <script src="static/toastr.min.js"></script>
     <script type="text/javascript" src="/eel.js"></script>
     <script src="includes/js/main.js"></script>
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Aug 18, 2022 00:00:00").getTime();
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-            
-            // document.getElementById('users').innerText = 'ERR';
-
-
-
-          // Get today's date and time
-          var now = new Date().getTime();
-        
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-        
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          var curHour = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var curMinutes = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
-          var curSeconds = Math.floor((now % (1000 * 60)) / 1000);
-          var dynamicSeconds = curSeconds;
-          var dynamicMinutes = curMinutes;
-          if (curSeconds < 10) {
-            dynamicSeconds = "0" + curSeconds;
-          }
-          if (curMinutes < 10) {
-            dynamicMinutes = "0" + curMinutes;
-          }
-        
-          // Display the result in the element with id="demo"
-          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-          + minutes + "m " + seconds + "s ";
-          document.getElementById("currentTime").innerHTML = curHour + " : " + dynamicMinutes + " : " + dynamicSeconds;
-          // If the count down is finished, write some text
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown").innerHTML = "together at last <3";
-          }
-        }, 1000);
-    </script>
-
-    <script src=
-        "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-
-    <script type="application/javascript">
-        function getIP(json) {
-            var e = document.getElementById("ip");
-            e.innerHTML = json.ip;
-        }
-    </script>
-
-    <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
-    <script>
-        window.onload = function() {
-            if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        }
-        else {
-            document.getElementById("latitude").innerHTML = "Geolocation is not supported by this browser.";
-            document.getElementById("longitude").innerHTML = "";
-        }
-        };
-    function showPosition(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        document.getElementById("latitude").innerHTML = lat.toFixed(5);
-        document.getElementById("longitude").innerHTML = lon.toFixed(5);
-    }
-    </script>
-    
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -99,14 +24,14 @@
             <div class="inner">
 				<div class="separator">
                     <br>
-                    <span>rabbits home</span><br>
-                    <span>queens castle</span><br>
+                    <a href="rabbits-home.html">rabbits home</a><br>
+                    <a href="queens-castle.html">queens castle</a><br>
                     <br>
 				</div>
                 <div class="separator">
                     <br>
-                    <span>tea party</span><br>
-                    <span>forest</span><br>
+                    <a href="tea-party.html">tea party</a><br>
+                    <a href="the-forest.html">the forest</a><br>
                     <br>
 				</div>
             </div>
@@ -116,8 +41,8 @@
     </div>
     <div class="panel-card stats" style="width: 300px">
         <div class="header"><span>who am i ?</span></div>
-        <!--<div>users online : <span id="users" style="color: green;"></span></div>-->
-        <div>current time : <span id="currentTime" style="color: green;">loading ..</span> </div>
+        <!--<div>users online : <span id="users" style="color: green;"></span></div>
+        <div>current time : <span id="currentTime" style="color: green;">loading ..</span> </div>-->
         <div>latitude : <span id="latitude" style="color: green;"></span></div>
         <div>longitude : <span id="longitude" style="color: green;"></span></div>
         <span></span>
