@@ -7,6 +7,30 @@ body {
     font-family: cutive mono, monospace
 }
 
+
+
+#amp {
+    animation: amp 3s ease-in infinite;
+}
+
+@keyframes amp {
+    50% {
+        opacity: 0;
+    }
+}
+
+#house {
+    opacity: 0;
+    animation: house 3s ease-in infinite;
+}
+
+@keyframes house {
+    50% {
+        opacity: 1;
+    }
+}
+
+
 .main {
     position: absolute;
     left: 50%;

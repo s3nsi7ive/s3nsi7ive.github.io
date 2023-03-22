@@ -12,10 +12,32 @@
     <script src="main.js"></script>
 </head>
 
+<script type = "text/javascript">
+    function CreateBlog(title, text, author) {
+        const separator = document.createElement("div")
+        separator.id = "separator"
+        const inner = document.createElement("div")
+        inner.id = "inner"
+        const blog_title = document.createElement("i")
+        const blog_text = document.createElement("i")
+        const blog_author = document.createElement("i")
+        blog_title.innerText = title
+        blog_text.innerText = text
+        blog_author.innerText = author
+        separator.appendChild(inner)
+        inner.appendChild(blog_title)
+        inner.appendChild(blog_text)
+        inner.appendChild(blog_author)
+    }
+</script>
+
 <body>
     <!-- Main Content -->
     <div class="main">
       <span style="font-size: 40px;">house of hills</span>
+      <br>
+      <span id="amp" style="font-size: 40px;">amp</span>
+      <span id="house" style="font-size: 40px;">house</span>
       <br>
       <br>
         <div class="panel-card">

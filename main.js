@@ -45,6 +45,7 @@ const x = setInterval(function () {
 window.onload = function() {
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
+    // CreateBlog("amp", "test", "kiddo")
 }
 else {
     document.getElementById("latitude").innerHTML = "Geolocation is not supported by this browser.";
