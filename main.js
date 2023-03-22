@@ -2,9 +2,9 @@
 const countDownDate = new Date("Feb 11, 2022 00:00:00").getTime();
 // Get today's date and time
 const now = new Date().getTime();
-// someones special day
+// someone's special day
 const amp_day = new Date("Aug 18, 2022 00:00:00").getTime();
-// Update the countdown every 1 second
+// update the countdown every 1 second
 
 function ObtainTime(distance) {
     distance = Math.abs(distance);
