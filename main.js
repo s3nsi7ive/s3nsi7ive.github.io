@@ -1,13 +1,11 @@
 // Set the date we're counting down to
 const countDownDate = new Date("Feb 11, 2022 00:00:00").getTime();
-// Get today's date and time
-const now = new Date().getTime();
 // someone's special day
 const amp_day = new Date("Aug 18, 2022 00:00:00").getTime();
 // update the countdown every 1 second
 
-function ObtainTime(distance) {
-    distance = Math.abs(distance);
+function ObtainTime(distance, now) {
+    distance = Math.abs(distance - now);
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -29,9 +27,10 @@ function ObtainTime(distance) {
 }
 
 const x = setInterval(function () {
+    const now = new Date().getTime();
 
-    let days_together = ObtainTime(countDownDate - now);
-    let adult_time = ObtainTime(amp_day - now);
+    let days_together = ObtainTime(countDownDate, now);
+    let adult_time = ObtainTime(amp_day, now);
 
     // Display the result in the element with id="demo"
     document.getElementById("countdown").innerHTML = days_together
@@ -41,11 +40,6 @@ const x = setInterval(function () {
 }, 1000);
 
 //"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
-window.onload = function() {
-    const e = document.getElementById("ip");
-    e.innerHTML = json.ip;
-}
 
     //<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
 window.onload = function() {
