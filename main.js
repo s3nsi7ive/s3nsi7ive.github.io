@@ -1,7 +1,7 @@
 // Set the date we're counting down to
-const countDownDate = new Date("Dec 12, 2025 00:00:00").getTime();
+const countDownDate = new Date("Sep 1, 2018 00:00:00").getTime();
 // someone's special day
-const amp_day = new Date("Aug 18, 2025 00:00:00").getTime();
+const amp_day = new Date("Feb 12, 2021 00:00:00").getTime();
 // update the countdown every 1 second
 
 function ObtainTime(distance, now) {
